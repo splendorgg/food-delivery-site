@@ -4,9 +4,10 @@
 
 body {
   background-color: #f7f7f7;
-  color: white;
+  color: black;
   padding: 0;
   margin: 0;
+  word-spacing: -3px;
 }
 
 .input:focus+.label,

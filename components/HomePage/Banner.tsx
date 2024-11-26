@@ -7,10 +7,10 @@ function Banner() {
     return (
         <>
             <div className='relative w-full h-[540px] overflow-hidden '>
-                <Image src={banner2} alt="banner" className='absoulte w-full h-full object-cover brightness-[65%] ' />
+                <Image src={banner2} alt="banner" className='absolute w-full h-full object-cover brightness-[65%] ' />
 
                 <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center '>
-                    <h1 className='text-4xl font-bold text-center '>Food or groceries, all your needs are at your door!</h1>
+                    <h1 className='text-4xl font-bold text-center text-white'>Food or groceries, all your needs are at your door!</h1>
                     <div className='flex bg-white p-3 rounded-md gap-4 mt-4 shadow-lg w-[550px] items-center '>
                         <div className="input-container w-[450px] relative">
                             <input

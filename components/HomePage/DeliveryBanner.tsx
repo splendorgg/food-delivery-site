@@ -12,7 +12,7 @@ function DeliveryBanner() {
                 <h2 className='text-5xl font-bold'>30 MINUTES DELIVERY!</h2>
                 <p className='text-center font-medium text-lg '>We guarantee fast delivery! If your order doesn’t arrive within 30 minutes, simply reach out to us, and we’ll ensure you receive a full refund, no questions asked.</p>
                 <div className='flex justify-center '>
-                    <a href='tel:999-999-9999' className='inline-block bg-red-500 text-white px-4 py-2 rounded-lg '>CALL: 999-999-9999</a>
+                    <a href='tel:999-999-9999' className='inline-block bg-red-600 text-white px-4 py-3 rounded-lg font-bold text-xl hover:bg-red-700 '>CALL:999-999-9999</a>
                 </div>
             </div>
         </div>

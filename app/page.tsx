@@ -1,13 +1,11 @@
-import Banner from "@/components/Banner";
-import Cities from "@/components/Cities";
-import DeliveryBanner from "@/components/DeliveryBanner";
-import MobileBanner from "@/components/MobileBanner";
-import Navbar from "@/components/Navbar";
+import Banner from "@/components/HomePage/Banner";
+import Cities from "@/components/HomePage/Cities";
+import DeliveryBanner from "@/components/HomePage/DeliveryBanner";
+import MobileBanner from "@/components/HomePage/MobileBanner";
 
 export default function Home() {
   return (
     <>
-      <Navbar></Navbar>
       <Banner></Banner>
       <Cities></Cities>
       <MobileBanner></MobileBanner>
