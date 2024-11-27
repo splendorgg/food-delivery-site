@@ -26,8 +26,8 @@ function MenuBanner() {
                                 pointer-events-none items-center px-1 gap-2 '>Search food </label>
                         </div>
                         <Button type='primary' className='text-white bg-[#e21b70] w-[80px] h-[40px]'>Search</Button>
-                        <select id="category-dropdown" className='text-black bg-white border-2 border-solid rounded-md px-4 py-2'>
-                            <option value="" disabled selected>Select a category</option>
+                        <select id="category-dropdown" defaultValue="select-category" className='text-black bg-white border-2 border-solid rounded-md px-4 py-2'>
+                            <option value="select-category" disabled>Select a category</option>
                             <option value="" >Pizza</option>
                             <option value="">Dessert</option>
                             <option value="">Burger</option>

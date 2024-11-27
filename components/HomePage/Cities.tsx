@@ -11,22 +11,22 @@ function Cities() {
             <h1 className='text-3xl font-bold text-black'>Find us in these cities and many more!</h1>
             <div className='flex justify-between mt-6 '>
                 <div className='relative w-[310px] h-[220px] rounded-lg overflow-hidden shadow-lg  '>
-                    <Image src={izmir} alt="banner" layout='fill' className=' object-cover transition-transform duration-300 hover:scale-110' />
+                    <Image src={izmir} alt="banner" fill className=' object-cover  transition-transform duration-300 hover:scale-110' />
                     <span className="absolute bottom-2 left-2 bg-white text-black text-lg 
                     font-medium px-4 py-2 rounded-lg shadow">Izmir</span>
                 </div>
                 <div className='relative w-[310px] h-[220px] rounded-lg overflow-hidden shadow-lg  '>
-                    <Image src={istanbul} alt="banner" layout='fill' className=' object-cover transition-transform duration-300 hover:scale-110' />
+                    <Image src={istanbul} alt="banner" fill className=' object-cover transition-transform duration-300 hover:scale-110' />
                     <span className="absolute bottom-2 left-2 bg-white text-black text-lg 
                     font-medium px-4 py-2 rounded-lg shadow">Istanbul</span>
                 </div>
                 <div className='relative w-[310px] h-[220px] rounded-lg overflow-hidden shadow-lg  '>
-                    <Image src={ankara} alt="banner" layout='fill' className=' object-cover transition-transform duration-300 hover:scale-110' />
+                    <Image src={ankara} alt="banner" fill className=' object-cover transition-transform duration-300 hover:scale-110' />
                     <span className="absolute bottom-2 left-2 bg-white text-black text-lg 
                     font-medium px-4 py-2 rounded-lg shadow">Ankara</span>
                 </div>
                 <div className='relative w-[310px] h-[220px] rounded-lg overflow-hidden shadow-lg  '>
-                    <Image src={antalya} alt="banner" layout='fill' className=' object-cover transition-transform duration-300 hover:scale-110' />
+                    <Image src={antalya} alt="banner" fill className=' object-cover transition-transform duration-300 hover:scale-110' />
                     <span className="absolute bottom-2 left-2 bg-white text-black text-lg 
                     font-medium px-4 py-2 rounded-lg shadow">Antalya</span>
                 </div>

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import banner2 from '@/img/banner2.jpg'
 import { TbCurrentLocation } from "react-icons/tb";
 import { Button } from 'antd';
+import Link from 'next/link';
 
 function Banner() {
     return (
@@ -24,7 +25,9 @@ function Banner() {
                                 <TbCurrentLocation color='red' />
                             </div>
                         </div>
-                        <Button type='primary' className='text-white bg-[#e21b70] w-[80px] h-[40px]'>Search</Button>
+                        <Link href="/menu">
+                            <Button type='primary' className='text-white bg-[#e21b70] w-[80px] h-[40px]'>Search</Button>
+                        </Link>
                     </div>
                 </div>
             </div>
