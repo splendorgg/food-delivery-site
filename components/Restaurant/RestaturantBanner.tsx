@@ -6,8 +6,8 @@ import Image from 'next/image'
 function RestaturantBanner() {
     return (
         <div className=''>
-            <div className='h-[400px] overflow-hidden relative'>
-                <Image src={banner} alt="banner" className='absolute w-full h-full object-cover brightness-90 ' />
+            <div className='h-[400px] w-full overflow-hidden relative'>
+                <Image src={banner} alt="banner" className='absolute w-full h-full inset-0 object-cover brightness-90 ' />
                 <div className='absolute bottom-4 left-4 flex bg-[#f8f5e6] gap-4 items-center rounded-lg'>
                     <div className='h-[100px] w-[100px] overflow-hidden rounded-lg relative'>
                         <Image src={logo} alt="logo" fill className=' object-cover absolute object  ' />
