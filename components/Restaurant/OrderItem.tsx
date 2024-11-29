@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react'
 import burger from '@/img/food/burger.png'
 import { FaMinus, FaPlus } from "react-icons/fa6";
@@ -12,9 +13,10 @@ function OrderItem() {
     const handleCountMinus = () => {
         if (itemCount === 1) {
             return
-        } else[
+        } else {
             setitemCount(itemCount - 1)
-        ]
+        }
+
     }
     return (
         <div className='my-4 py-2 '>

@@ -1,8 +1,11 @@
-'use client'
 import React from 'react'
 import RestaurantFoodCard from './RestaurantFoodCard'
+import prisma from '@/lib/db';
 
-function RestaurantMenu({ onFoodClick }: any) {
+
+async function RestaurantMenu() {
+    const items = await prisma.item.findMany()
+
     return (
         <div className=' mt-2 '>
             <div >
@@ -10,23 +13,10 @@ function RestaurantMenu({ onFoodClick }: any) {
                 <p className='text-gray-600'>The most commonly ordered items and dishes from this store</p>
             </div>
 
-            <div className='flex flex-wrap  gap-4 py-4'>
-                <RestaurantFoodCard onClick={onFoodClick} />
-                <RestaurantFoodCard />
-                <RestaurantFoodCard />
-                <RestaurantFoodCard />
-                <RestaurantFoodCard />
-                <RestaurantFoodCard />
-                <RestaurantFoodCard />
-                <RestaurantFoodCard />
-                <RestaurantFoodCard />
-                <RestaurantFoodCard />
-                <RestaurantFoodCard />
-                <RestaurantFoodCard />
-                <RestaurantFoodCard />
-                <RestaurantFoodCard />
-            </div>
+            <div className='flex flex-wrap  gap-4 py-4 '>
+                <RestaurantFoodCard items={items} />
 
+            </div>
         </div>
     )
 }

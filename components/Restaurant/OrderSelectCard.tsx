@@ -1,4 +1,3 @@
-'use client'
 import Image from 'next/image'
 import React from 'react'
 import burger from '@/img/food/burger.png'
@@ -6,7 +5,7 @@ import { Checkbox } from 'antd';
 import { FaMinus, FaPlus } from "react-icons/fa6";
 
 
-export function OrderSelectCard({ onClose }: any) {
+export function OrderSelectCard({ item, onClose }) {
 
     const options = [
         { label: 'Extra Cheese', value: '2.50' },
@@ -27,10 +26,11 @@ export function OrderSelectCard({ onClose }: any) {
             <div className='flex flex-col flex-grow min-w-0 p-2 gap-4 '>
                 <div>
                     <div className='flex'>
-                        <h3 className='text-lg border-b-2 border-gray-100'>Burger</h3>
+                        <h3 className='text-lg border-b-2 border-gray-100'>{item.name}</h3>
                         <button onClick={onClose} className='ml-auto bg-gray-200 hover:bg-gray-300 px-2 rounded-full'>x</button>
                     </div>
-                    <p className=' text-[#3b3b3b] text-sm  pt-2 line-clamp-3'>160g beef patty topped with fresh lettuce, tomato, melted cheddar, and a special sauce </p>
+                    {/* <p className=' text-[#3b3b3b] text-sm  pt-2 line-clamp-3'>160g beef patty topped with fresh lettuce, tomato, melted cheddar, and a special sauce </p> */}
+                    <p className=' text-[#3b3b3b] text-sm  pt-2 line-clamp-3'>{item.description} </p>
                 </div>
                 <div className='bg-gray-200 bg-opacity-45 py-2 px-2'>
                     <h3 className='font-bold ' >Extras</h3>
@@ -65,7 +65,7 @@ export function OrderSelectCard({ onClose }: any) {
                             Add to Order
                         </div>
                         <div className='ml-auto bg-[#338817] p-2 '>
-                            $50.00
+                            ${item.price}
                         </div>
                     </div>
                 </div>
