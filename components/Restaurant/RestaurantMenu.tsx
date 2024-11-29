@@ -1,7 +1,8 @@
+'use client'
 import React from 'react'
 import RestaurantFoodCard from './RestaurantFoodCard'
 
-function RestaurantMenu() {
+function RestaurantMenu({ onFoodClick }: any) {
     return (
         <div className=' mt-2 '>
             <div >
@@ -10,7 +11,7 @@ function RestaurantMenu() {
             </div>
 
             <div className='flex flex-wrap  gap-4 py-4'>
-                <RestaurantFoodCard />
+                <RestaurantFoodCard onClick={onFoodClick} />
                 <RestaurantFoodCard />
                 <RestaurantFoodCard />
                 <RestaurantFoodCard />
@@ -25,6 +26,7 @@ function RestaurantMenu() {
                 <RestaurantFoodCard />
                 <RestaurantFoodCard />
             </div>
+
         </div>
     )
 }

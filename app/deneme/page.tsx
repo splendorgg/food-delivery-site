@@ -1,5 +1,5 @@
 import React from 'react'
-import OrderSelectCard from '@/components/Restaurant/OrderSelectCard'
+import { OrderSelectCard } from '@/components/Restaurant/OrderSelectCard'
 
 function page() {
     return (
