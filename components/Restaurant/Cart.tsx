@@ -4,7 +4,7 @@ import OrderItem from './OrderItem'
 
 function Cart() {
     return (
-        <div className='min-w-[340px] min-h-[500px] max-h-[calc(100vh-104px)] flex flex-col border-2 border-gray-200 shadow-lg rounded-lg p-5 h-max sticky top-[104px] mt-[80px]'>
+        <div className=' min-w-[340px] min-h-[500px] max-h-[calc(100vh-104px)] flex flex-col border-2 border-gray-200 shadow-lg rounded-lg p-5 h-max sticky top-[104px] mt-[80px]'>
             <h2 className='mt-2 text-xl '>MY ORDER</h2>
             <div className='overflow-y-auto flex-1'>
                 <OrderItem />

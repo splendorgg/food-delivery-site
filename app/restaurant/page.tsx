@@ -1,6 +1,6 @@
 import Cart from '@/components/Restaurant/Cart'
 import ConfirmMobileView from '@/components/Restaurant/ConfirmMobileView'
-import Parent from '@/components/Restaurant/Parent'
+import RestaturantContext from '@/components/Restaurant/Context/RestaurantContext'
 import RestaturantBanner from '@/components/Restaurant/RestaturantBanner'
 import RestaurantCategories from '@/components/Restaurant/RestaurantCategories'
 import RestaurantMenu from '@/components/Restaurant/RestaurantMenu'
@@ -10,18 +10,17 @@ function Page() {
 
     return (
         <div className='max-w-[1300px] mx-auto px-2'>
-            <Parent>
-                <RestaturantBanner />
-                <RestaurantCategories />
+            <RestaturantBanner />
+            <RestaurantCategories />
+            <RestaturantContext>
                 <div className='flex gap-4'>
                     <RestaurantMenu />
-                    <div className='hidden md:block'>
+                    <div className='hidden md:block ml-auto'>
                         <Cart />
                     </div>
                 </div>
-
-                <ConfirmMobileView />
-            </Parent>
+            </RestaturantContext>
+            <ConfirmMobileView />
 
 
 

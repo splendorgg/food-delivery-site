@@ -3,10 +3,10 @@ import React, { createContext, useState, useContext, useEffect } from 'react'
 type Item = { id: number; name: string; price: number; description: string }
 interface ModalContextType {
   isModalVisible: boolean;
-  handleFoodClick: (item:Item) => void;
+  handleFoodClick: (item: Item) => void;
   handleCloseModal: () => void;
   selectedItem: Item | null;
-  setSelectedItem: React.Dispatch<React.SetStateAction<any>>;
+  setSelectedItem: React.Dispatch<React.SetStateAction<Item | null>>;
 }
 
 const defaultModalContext: ModalContextType = {
@@ -21,7 +21,8 @@ const ModalContext = createContext<ModalContextType>(defaultModalContext);
 export const useModal = () => useContext(ModalContext);
 export function FoodContext({ children }: { children: React.ReactNode }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+
 
   const handleFoodClick = (item: Item) => { setIsModalVisible(true); setSelectedItem(item); };
 

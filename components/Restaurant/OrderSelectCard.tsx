@@ -4,8 +4,8 @@ import burger from '@/img/food/burger.png'
 import { Checkbox } from 'antd';
 import { FaMinus, FaPlus } from "react-icons/fa6";
 
-
-export function OrderSelectCard({ item, onClose }) {
+type Item = { id: number; name: string; price: number; description: string }
+export function OrderSelectCard({ item, onClose }: { item: Item, onClose: () => void }) {
 
     const options = [
         { label: 'Extra Cheese', value: '2.50' },

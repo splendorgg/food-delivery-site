@@ -15,7 +15,6 @@ async function RestaurantMenu() {
 
             <div className='flex flex-wrap  gap-4 py-4 '>
                 <RestaurantFoodCard items={items} />
-
             </div>
         </div>
     )

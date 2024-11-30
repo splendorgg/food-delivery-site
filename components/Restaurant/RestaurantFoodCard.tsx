@@ -4,17 +4,17 @@ import React from 'react'
 import burger from '@/img/food/burger.png'
 import { FaCirclePlus } from "react-icons/fa6";
 import { OrderSelectCard } from './OrderSelectCard';
-import { useModal } from './FoodContext';
+import { useModal } from './Context/FoodContext';
 
 type Item = { id: number; name: string; price: number; description: string }
 
 function RestaurantFoodCard({ items }: { items: Item[] }) {
-    const { isModalVisible, handleFoodClick, handleCloseModal,selectedItem } = useModal();
+    const { isModalVisible, handleFoodClick, handleCloseModal, selectedItem } = useModal();
 
     return (
         <>
             {items.map((item) => (
-                <div onClick={()=>handleFoodClick(item)} key={item.id} className='bg-[#f7f7f7]   sm:w-[48%] lg:w-[32%] shadow-lg overflow-hidden w-max flex-grow basis-[456px] hover:bg-red-100  p-3 rounded-xl cursor-pointer flex gap-3 hover:scale-105 transition-transform duration-100 border-2 border-gray-200  '>
+                <div onClick={() => handleFoodClick(item)} key={item.id} className='bg-[#f7f7f7]   sm:w-[48%] lg:w-[32%] shadow-lg overflow-hidden w-max flex-grow basis-[456px] hover:bg-red-100  p-3 rounded-xl cursor-pointer flex gap-3 hover:scale-105 transition-transform duration-100 border-2 border-gray-200  '>
                     <div className='flex flex-col flex-grow min-w-0  '>
                         <h3 className='text-lg'>{item.name}</h3>
                         <p className='text-[#3b3b3b] text-sm'>${item.price}</p>
@@ -36,7 +36,7 @@ function RestaurantFoodCard({ items }: { items: Item[] }) {
                     ></div>
 
                     <div className="relative z-10">
-                        <OrderSelectCard onClose={handleCloseModal} item={selectedItem} />
+                        <OrderSelectCard onClose={handleCloseModal} item={selectedItem ?? { id: 0, name: '', price: 0, description: '' }} />
                     </div>
                 </div>
             )}

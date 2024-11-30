@@ -1,7 +1,7 @@
 import React from 'react'
 import { FoodContext } from './FoodContext'
 
-function Parent({ children }: { children: React.ReactNode }) {
+function RestaurantContext({ children }: { children: React.ReactNode }) {
     return (
         <FoodContext>
             {children}
@@ -9,4 +9,4 @@ function Parent({ children }: { children: React.ReactNode }) {
     )
 }
 
-export default Parent
+export default RestaurantContext
