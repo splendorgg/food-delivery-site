@@ -4,7 +4,7 @@ import FoodCard from './FoodCard'
 
 function AllRestaurants() {
     return (
-        <div className='flex-1'>
+        <div className=''>
             <h2>All Restaurants</h2>
             <div className='flex justify-between py-4 flex-wrap '>
                 <FoodCard />

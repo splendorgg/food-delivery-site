@@ -28,7 +28,7 @@ function SideBar() {
     };
 
     return (
-        <div className='w-1/5 border-2 shadow-lg rounded-lg p-5 h-max sticky top-[56px]'>
+        <div className='w-full '>
             <h2 className='text-xl '>Filters</h2>
             <div className='my-5 '>
                 <h3 className='mb-1'>Sort by</h3>
