@@ -18,8 +18,6 @@ async function RestaurantMenu() {
                 <RestaurantFoodCard items={items} />
                 <RestaurantFoodCard items={items} />
                 <RestaurantFoodCard items={items} />
-                <RestaurantFoodCard items={items} />
-                <RestaurantFoodCard items={items} />
             </div>
         </div>
     )

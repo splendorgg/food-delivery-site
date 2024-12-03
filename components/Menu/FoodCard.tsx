@@ -3,10 +3,12 @@ import burger from '@/img/food/burger.png'
 import { CiClock2 } from "react-icons/ci";
 import { LuDot } from "react-icons/lu";
 import Image from 'next/image';
+import Link from 'next/link';
 
 function FoodCard() {
     return (
-            <div className='bg-white shadow-lg overflow-hidden mb-6 rounded-xl cursor-pointer'>
+        <div className='bg-white shadow-lg overflow-hidden mb-6 rounded-xl cursor-pointer'>
+            <Link href="/restaurant">
                 <div className="w-full h-[350px] xl:w-[240px] xl:h-[180px] overflow-hidden hover:scale-105 transition-transform duration-300">
                     <Image src={burger} alt="food" className='object-cover w-full h-full' />
                 </div>
@@ -26,7 +28,8 @@ function FoodCard() {
                     <LuDot size={20} />
                     <p>Burgers</p>
                 </div>
-            </div>
+            </Link>
+        </div>
     )
 }
 
