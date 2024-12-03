@@ -5,9 +5,8 @@ import FoodCard from './FoodCard'
 function AllRestaurants() {
     return (
         <div className=''>
-            <h2>All Restaurants</h2>
-            <div className='flex justify-between py-4 flex-wrap '>
-                <FoodCard />
+            <h2 className='text-xl font-bold xl:text-left text-center'>All Restaurants</h2>
+            <div className='flex sm:gap-4 justify-center xl:justify-between py-4 flex-wrap '>
                 <FoodCard />
                 <FoodCard />
                 <FoodCard />

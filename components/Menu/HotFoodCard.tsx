@@ -6,9 +6,10 @@ import Image from 'next/image';
 
 function FoodCard() {
     return (
+        <div>
             <div className='bg-white shadow-lg overflow-hidden mb-6 rounded-xl cursor-pointer'>
-                <div className="w-full h-[350px] xl:w-[240px] xl:h-[180px] overflow-hidden hover:scale-105 transition-transform duration-300">
-                    <Image src={burger} alt="food" className='object-cover w-full h-full' />
+                <div className="h-[180px] w-[300px] lg:w-[280px] lg:h-[180px] overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <Image src={burger} alt="food"  className='object-cover w-full h-full' />
                 </div>
                 <div className='relative px-4 py-3 '>
                     <div>
@@ -27,6 +28,7 @@ function FoodCard() {
                     <p>Burgers</p>
                 </div>
             </div>
+        </div>
     )
 }
 

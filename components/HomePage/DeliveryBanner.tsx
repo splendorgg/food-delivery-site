@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 function DeliveryBanner() {
     return (
-        <div className='relative  lg:h-[400px] sm:h-[500px] w-full overflow-hidden'>
+        <div className='relative lg:h-[400px] sm:h-[500px] w-full overflow-hidden'>
             <Image src={city} alt="city" className='absoulte w-full min-h-[400px] lg:h-[400px] sm:h-[500px] object-cover brightness-[80%]' />
 
             <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center text-black gap-4 '>

@@ -7,17 +7,17 @@ function MenuBanner() {
     return (
         <div className='pt-12 pb-8 '>
             <div className='relative w-full h-[500px] overflow-hidden  '>
-                <Image src={foodplate} alt="banner" className='absolute right-0 top-1/2 -translate-y-1/2 w-full lg:w-[1024px]  h-full object-cover brightness-[65%]' />
+                <Image src={foodplate} alt="banner" className='absolute right-0 top-1/2 -translate-y-1/2 w-full xl:w-[1024px]  h-full object-cover brightness-[65%]' />
 
                 <div className="absolute xl:max-w-md inset-0 flex flex-col justify-center items-center text-center xl:items-start xl:justify-start xl:text-left xl:pt-16 ">
                     <h1 className='text-2xl lg:text-4xl font-bold xl:text-left text-white text-center xl:text-black '> <span className='text-[#e21b70]'> Fresh </span>food delivery at your door</h1>
                     <Button type='primary' size='large' className='w-max text-white bg-[#e21b70] rounded-lg mt-4 px-4 py-2'>Order Now</Button>
                 </div>
 
-                <div className='absolute lg:top-[60%]  bottom-0  flex flex-col justify-center items-center    '>
-                    <div className='flex flex-wrap bg-white p-4 rounded-md gap-4 mt-4 shadow-lg items-center  '>
-                        <div className='flex gap-4'>
-                            <div className="input-container w-[450px] relative">
+                <div className="absolute  top-[60%] xl:left-auto xl:translate-x-0 left-1/2 -translate-x-1/2 w-max flex-wrap bottom-0 flex  justify-center items-center">
+                    <div className='flex flex-wrap w-max bg-white sm:p-4 p-3 rounded-md gap-4 mt-4 shadow-lg items-center  '>
+                        <div className='flex gap-4 '>
+                            <div className="input-container lg:w-[450px] sm:w-[250px] w-[230px] relative">
                                 <input
                                     type="text"
                                     className="input w-full h-[40px] py-2 px-2 border-solid border-2 rounded-md text-black "
@@ -28,8 +28,8 @@ function MenuBanner() {
                             </div>
                             <Button type='primary' className='text-white bg-[#e21b70] w-[80px] h-[40px]'>Search</Button>
                         </div>
-                        <div className='flex gap-4'>
-                            <select id="category-dropdown" defaultValue="select-category" className='text-black bg-white border-2 border-solid rounded-md px-4 py-2'>
+                        <div className='md:flex hidden gap-4   '>
+                            <select id="category-dropdown" defaultValue="select-category" className='text-black bg-white border-2 border-solid rounded-md sm:px-4 py-2'>
                                 <option value="select-category" disabled>Select a category</option>
                                 <option value="" >Pizza</option>
                                 <option value="">Dessert</option>
@@ -40,8 +40,9 @@ function MenuBanner() {
                         </div>
                     </div>
                 </div>
+
             </div>
-        </div>
+        </div >
     )
 }
 

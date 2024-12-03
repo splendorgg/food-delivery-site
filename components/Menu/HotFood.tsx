@@ -1,17 +1,17 @@
 import React from 'react'
-import FoodCard from './FoodCard';
+import HotFoodCard from './HotFoodCard';
 
 function HotFood() {
     return (
         <div className='py-8 '>
-            <div>
-                <h2 className='text-2xl font-bold my-2'>The Hottest Food In Your Area </h2>
-                <div className='flex flex-wrap justify-between border-t border-gray-300 py-4 '>
-                    <FoodCard />
-                    <FoodCard />
-                    <FoodCard />
-                    <FoodCard />
-                    <FoodCard />
+            <div className=''>
+                <h2 className='text-2xl lg:text-left text-center font-bold my-2'>The Hottest Food In Your Area </h2>
+                <div className='flex gap-1 lg:gap-4 flex-wrap justify-center lg:justify-between border-t border-gray-300 lg:py-4 '>
+                    <HotFoodCard />
+                    <HotFoodCard />
+                    <HotFoodCard />
+                    <HotFoodCard />
+                    <HotFoodCard />
                 </div>
             </div>
         </div>

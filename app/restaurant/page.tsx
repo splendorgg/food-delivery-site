@@ -15,7 +15,7 @@ function Page() {
             <RestaturantContext>
                 <div className='flex gap-4'>
                     <RestaurantMenu />
-                    <div className='hidden md:block ml-auto'>
+                    <div className='hidden lg:block ml-auto'>
                         <Cart />
                     </div>
                 </div>
