@@ -30,11 +30,10 @@ function RestaurantFoodCard({ items }: { items: Item[] }) {
             {isModalVisible && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center">
                     <div
-                        className="absolute inset-0 bg-black bg-opacity-50"
+                        className="absolute inset-0 bg-black bg-opacity-10"
                         onClick={handleCloseModal}
                     ></div>
-
-                    <div className="relative z-10">
+                    <div className="relative z-10 w-full md:w-[70%] lg:w-[1200px]">
                         <OrderSelectCard onClose={handleCloseModal} item={selectedItem ?? { id: 0, name: '', price: 0, description: '' }} />
                     </div>
                 </div>
