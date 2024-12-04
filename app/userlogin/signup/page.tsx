@@ -63,7 +63,7 @@ function SignUp() {
                 pointer-events-none items-center px-1 gap-2 '>Password </label>
             </div>
             <button type="submit" className='bg-[#e21b70] text-white py-2 rounded-lg hover:bg-[#bb185f]'>Sign Up</button>
-            <p className='text-sm text-[#6e6e6e]'>Already have an account? <Link href='/auth/login'> <span className='text-[#e21b70] underline cursor-pointer hover:text-[#bb185f]'>Login</span></Link></p>
+            <p className='text-sm text-[#6e6e6e]'>Already have an account? <Link href='/userlogin/login'> <span className='text-[#e21b70] underline cursor-pointer hover:text-[#bb185f]'>Login</span></Link></p>
           </div>
         </form>
       </div>
