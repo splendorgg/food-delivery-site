@@ -1,8 +1,10 @@
+'use client'
 import { Button } from './Buttons/Button'
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import DropDown from './Buttons/DropDown';
 import Link from 'next/link';
 import { IoPersonOutline } from "react-icons/io5";
+import { signIn } from 'next-auth/react';
 
 function Navbar() {
     return (
@@ -18,7 +20,7 @@ function Navbar() {
                     <div className=' gap-4 items-center hidden sm:flex'>
                         <div className='hover:bg-gray-300 px-2 py-2 rounded-lg transition-all duration-200'><Link href="/menu">Menu</Link>
                         </div>
-                        <Button variant='empty'>Log in</Button>
+                        <button onClick={() => signIn()} className='py-1 border  border-black px-2 rounded-lg transition-all duration-200  transform hover:scale-105 [word-spacing:-5px]' >Log in</button>
                         <Button>Sign up</Button>
                         <DropDown />
                     </div>

@@ -10,10 +10,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-model Item{
-  id Int @id @default(autoincrement())
-  name String
-  price Float
+model Item {
+  id          Int    @id @default(autoincrement())
+  name        String
+  price       Float
   description String
+}
+
+model User {
+  id            Int       @id @default(autoincrement())
+  email         String    @unique
+  name          String
+  password      String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 }
