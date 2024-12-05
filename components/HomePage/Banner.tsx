@@ -3,12 +3,10 @@ import banner from '@/img/banner.jpeg'
 import { TbCurrentLocation } from "react-icons/tb";
 import { Button } from 'antd';
 import Link from 'next/link';
-import Navbar from '../Navbar';
 
 function Banner() {
     return (
         <>
-            <Navbar />
             <div className='relative w-full h-[540px] overflow-hidden '>
                 <Image src={banner} alt="banner" className='absolute w-full h-full object-cover brightness-[65%] ' />
 

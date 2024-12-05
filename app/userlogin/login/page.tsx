@@ -23,6 +23,7 @@ function SignIn() {
 
         if (res?.error) {
             setError('Invalid email or password')
+            console.log(error);
         } else {
             router.push('/')
         }
@@ -32,7 +33,6 @@ function SignIn() {
     useEffect(() => {
         const fetchSession = async () => {
             const session = await getSession();
-            console.log(session);
             setSession(session);
         };
 

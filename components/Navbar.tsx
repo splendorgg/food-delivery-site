@@ -6,7 +6,17 @@ import Link from 'next/link';
 import { IoPersonOutline } from "react-icons/io5";
 import { getSession, signIn } from 'next-auth/react';
 import { useEffect, useState } from 'react';
-import { Session } from 'next-auth';
+interface User {
+    id: string;
+    name?: string | null | undefined;
+    email?: string | null | undefined;
+
+}
+
+interface Session {
+    user: User;
+}
+
 
 function Navbar() {
 
@@ -15,8 +25,7 @@ function Navbar() {
     useEffect(() => {
         const fetchSession = async () => {
             const session = await getSession();
-            console.log(session);
-            setSession(session);
+            setSession(session as Session | null);
         };
 
         fetchSession();
@@ -26,7 +35,9 @@ function Navbar() {
     return (
         <div className='sticky top-0 z-10'>
             <div className='flex justify-center sm:justify-between bg-[#fff] w-full h-14 items-center px-20 text-black drop-shadow-lg'>
-                <div className=' sm:hidden fixed left-4 cursor-pointer hover:bg-gray-300 p-2 rounded-full transition-all duration-200'><Link href="/userlogin/login"><IoPersonOutline size={20} /></Link></div>
+                <div className='sm:hidden fixed left-4 '>
+                    <Link href={`/protected/userprofile/${session?.user?.id}`}> <div className='cursor-pointer hover:bg-gray-300 p-2 rounded-full transition-all duration-200'><IoPersonOutline size={20} /></div></Link>
+                </div>
                 <div>
                     <Link href="/">
                         <h1>Logo</h1>
@@ -47,7 +58,7 @@ function Navbar() {
                         </div>
                     </div>
                 ) : (
-                    <div className='hidden sm:flex cursor-pointer hover:bg-gray-300 p-2 rounded-full transition-all duration-200'><Link href="/userlogin/login"><IoPersonOutline size={20} /></Link></div>
+                    <div className='hidden sm:flex cursor-pointer hover:bg-gray-300 p-2 rounded-full transition-all duration-200'><Link href={`/protected/userprofile/${session?.user?.id}`}><IoPersonOutline size={20} /></Link></div>
                 )}
             </div>
         </div>

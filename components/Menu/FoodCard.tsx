@@ -14,7 +14,7 @@ function FoodCard() {
                 </div>
                 <div className='relative px-4 py-3 '>
                     <div>
-                        <h3 className='text-lg'>Hot Dog</h3>
+                        <h3 className='text-lg'>Burger</h3>
                         <p className='text-[#3b3b3b] text-sm'>$2.99</p>
                         <div className='flex items-center gap-1 text-[#3b3b3b] text-sm'><CiClock2 fill='green' /> 20-30 min</div>
                     </div>
