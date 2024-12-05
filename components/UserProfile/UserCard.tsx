@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 interface Restaurant {
     id: number;
@@ -29,19 +30,23 @@ function UserCard({ restaurants, user }: UserCardProps) {
                     <p>Name: {user.name}</p>
                     <p>Email: {user.email}</p>
                 </div>
-
             </div>
             <div className=''>
                 <h1 className='mb-2 text-center'>My Restaurants</h1>
                 <div>{restaurants.length > 0 ?
                     <div className='flex gap-4'>
                         {restaurants.map((restaurant) => (
-                            <div key={restaurant.id}>
-                                <h1>Name: {restaurant.name}</h1>
-                                <p>Location: {restaurant.location}</p>
-                                <p>Opening Time: {restaurant.opening}</p>
-                                <p>Closing Time: {restaurant.closing}</p>
+                            <div key={restaurant.id} className='flex items-center flex-col gap-1'>
+                                <div>
+                                    <h1>Name: {restaurant.name}</h1>
+                                    <p>Location: {restaurant.location}</p>
+                                    <p>Opening Time: {restaurant.opening}</p>
+                                    <p>Closing Time: {restaurant.closing}</p>
+                                </div>
+                                <button className='bg-[#e21b70] text-white px-2 py-1 rounded-lg'><Link href={`/restaurant/${restaurant.id}`}>Go to Restaurant</Link></button>
+                                <button className='bg-[#e21b70] text-white px-2 py-1 rounded-lg'><Link href={`/restaurant/${restaurant.id}`}>Edit Restaurant</Link></button>
                             </div>
+
                         ))}
                     </div>
                     : <button>Add Restaunt</button>}

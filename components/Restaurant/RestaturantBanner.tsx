@@ -2,8 +2,17 @@ import React from 'react'
 import banner from '@/img/Designer.jpeg'
 import logo from '@/img/logo.jpeg'
 import Image from 'next/image'
+import { HiLocationMarker } from "react-icons/hi";
+interface restaurantInfo {
+    id: number;
+    name: string;
+    location: string;
+    opening: string;
+    closing: string;
+    userId: number;
+}
 
-function RestaturantBanner() {
+function RestaturantBanner({ info }: { info: restaurantInfo }) {
     return (
         <div className=''>
             <div className='h-[400px] w-full overflow-hidden relative'>
@@ -13,16 +22,14 @@ function RestaturantBanner() {
                         <Image src={logo} alt="logo" fill className=' object-cover absolute object  ' />
                     </div>
                     <div className='px-4'>
-                        <p className='text-2xl font-bold'>Your Restaurant</p>
+                        <p className='text-2xl font-bold'>{info.name}</p>
                         <p>4 Star</p>
-                        <p>45 Elm Street Springfield 12345</p>
-                        <p>Open: 10:00AM - 9:00PM</p>
+                        <p className='flex gap-1 items-center'><HiLocationMarker />{info.location}</p>
+                        <p>Open: {info.opening} -{info.closing}</p>
                     </div>
                 </div>
             </div>
             <h3 className='text-2xl py-4 mt-4 '>Available Meals</h3>
-
-
         </div>
     )
 }

@@ -1,10 +1,16 @@
 import React from 'react'
 import RestaurantFoodCard from './RestaurantFoodCard'
-import prisma from '@/lib/db';
+type Item = {
+    id: number;
+    name: string;
+    price: number;
+    description: string;
+};
 
-
-async function RestaurantMenu() {
-    const items = await prisma.item.findMany()
+type RestaurantMenuProps = {
+    items: Item[];
+};
+async function RestaurantMenu({ items }: RestaurantMenuProps) {
 
     return (
         <div className='mt-2'>
@@ -13,11 +19,10 @@ async function RestaurantMenu() {
                 <p className='text-gray-600'>The most commonly ordered items and dishes from this store</p>
             </div>
 
-            <div className='flex flex-wrap justify-center  gap-4 py-4 '>
-                <RestaurantFoodCard items={items} />
-                <RestaurantFoodCard items={items} />
-                <RestaurantFoodCard items={items} />
-                <RestaurantFoodCard items={items} />
+            <div className="flex flex-wrap justify-center gap-4 py-4">
+                {items.map((item) => (
+                    <RestaurantFoodCard key={item.id} item={item} />
+                ))}
             </div>
         </div>
     )
