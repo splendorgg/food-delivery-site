@@ -14,8 +14,11 @@ async function GetUserRestaurants() {
         }
     })
     return (
-
-        <UserCard restaurants={userRestaurants} user={session?.user} />
+        <div>
+            <div>
+                <UserCard restaurants={userRestaurants} user={session?.user} />
+            </div>
+        </div>
     )
 
 }

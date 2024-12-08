@@ -1,5 +1,4 @@
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
-import AddItem from '@/components/RestaurantProfile/AddItem'
 import ItemsCard from '@/components/RestaurantProfile/ItemsCard'
 import prisma from '@/lib/db'
 import { getServerSession } from 'next-auth'
@@ -46,14 +45,11 @@ async function page({ params }: ProfilePageParams) {
             },
         },
     });
-    
+
     return (
         <div className='flex flex-col gap-4 min-h-screen'>
-            <div>
-                <AddItem restaurantId={restaurantParamId} />
-            </div>
-            <div className='flex items-center justify-center'>
-                <ItemsCard items={restaurantInfo?.items ?? []} />
+            <div className='flex items-center'>
+                <ItemsCard items={restaurantInfo?.items ?? []} restaurantId={restaurantParamId} />
             </div>
         </div>
     )

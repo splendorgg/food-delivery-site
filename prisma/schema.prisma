@@ -18,6 +18,7 @@ model Item {
   categories   Category[] @relation("ItemToCategory")
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
   restaurantId Int
+  photoUrl     String?
 }
 
 model Category {
@@ -45,4 +46,6 @@ model Restaurant {
   items    Item[]
   userId   Int
   user     User   @relation(fields: [userId], references: [id])
+  profilePhoto String? 
+  bannerPhoto  String?
 }

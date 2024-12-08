@@ -21,7 +21,9 @@ async function page({ params }: ProfilePageParams) {
 
   return (
     <div className='flex items-center justify-center min-h-screen' >
-      <GetUserRestaurants />
+      <div className='flex items-center'>
+        <GetUserRestaurants />
+      </div>
     </div>
   )
 }
