@@ -62,7 +62,7 @@ function Navbar() {
                             <div className='hover:bg-gray-300 px-2 py-2 rounded-lg transition-all duration-200'><Link href="/menu">Menu</Link>
                             </div>
                             <button onClick={() => signIn()} className='py-1 border  border-black px-2 rounded-lg transition-all duration-200  transform hover:scale-105 [word-spacing:-5px]' >Log in</button>
-                            <Button>Sign up</Button>
+                            <Link href="/userlogin/signup"><Button>Sign up</Button> </Link>
                             <DropDown />
                         </div>
 

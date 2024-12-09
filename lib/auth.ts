@@ -1,11 +1,12 @@
 import prisma from "@/lib/db";
 import { compare } from "bcrypt";
-import  { AuthOptions } from "next-auth";
+import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials"
 
 export const authOptions: AuthOptions = {
     session: {
-        strategy: 'jwt'
+        strategy: 'jwt',
+
     },
     providers: [
         CredentialsProvider({
@@ -71,7 +72,28 @@ export const authOptions: AuthOptions = {
             return token
         }
     },
+    cookies: {
+        sessionToken: {
+            name: `__Secure-next-auth.session-token`,
+            options: {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+                sameSite: "None",
+                path: "/",
+            },
+        },
+        csrfToken: {
+            name: `__Host-next-auth.csrf-token`,
+            options: {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+                sameSite: "None",
+                path: "/",
+            },
+        },
+    },
+
     secret: process.env.NEXTAUTH_SECRET,
 
-    
+
 }
