@@ -23,6 +23,7 @@ function SignIn() {
 
         if (res?.error) {
             setError('Invalid email or password')
+            alert('Invalid email or password')
             console.log(error);
         } else {
             router.push('/')

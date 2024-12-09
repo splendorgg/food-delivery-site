@@ -2,6 +2,7 @@
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useState } from 'react'
+import SignOut from './SignOut';
 interface Restaurant {
     id: number;
     name: string;
@@ -53,10 +54,12 @@ function UserCard({ restaurants, user }: UserCardProps) {
                     <p>Name: {user.name}</p>
                     <p>Email: {user.email}</p>
                 </div>
-                <div className='mt-auto'>
+                <div className='mt-auto flex gap-1'>
                     <Link href={`/protected/userprofile/${user.id}/createrestaurant`}>
                         <button className='bg-[#e21b70] text-white px-2 py-1 rounded-lg'>Add Restaurant</button>
                     </Link>
+                    <SignOut />
+
                 </div>
             </div>
             <div className='shadow-lg rounded-lg p-4'>
@@ -79,9 +82,12 @@ function UserCard({ restaurants, user }: UserCardProps) {
 
                         ))}
                     </div>
-                    : <button className='bg-[#e21b70] text-white px-2 py-1 rounded-lg'>Add Restaunt</button>}
+                    : <Link href={`/protected/userprofile/${user.id}/createrestaurant`}>
+                        <button className='bg-[#e21b70] text-white px-2 py-1 rounded-lg'>Add Restaurant</button>
+                    </Link>}
 
                 </div>
+
             </div>
             <div>
             </div>

@@ -7,6 +7,7 @@ import RestaurantCategories from '@/components/Restaurant/RestaurantCategories'
 import RestaurantMenu from '@/components/Restaurant/RestaurantMenu'
 import prisma from '@/lib/db'
 import React from 'react'
+import NoRestaurantFound from '@/components/Restaurant/NotFound'
 
 
 
@@ -24,9 +25,10 @@ async function Page({ params }: { params: { id: string } }) {
 
     if (!restaurantInfo) {
         return (
-            <div>
-                <h1>Restaurant Not Found</h1>
-            </div>
+            <>
+                <NoRestaurantFound />
+            </>
+
         )
     }
 
