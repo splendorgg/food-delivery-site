@@ -1,7 +1,7 @@
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import prisma from '@/lib/db';
 import { getServerSession } from 'next-auth';
 import UserCard from './UserCard';
+import { authOptions } from '@/lib/auth';
 
 async function GetUserRestaurants() {
     const session = await getServerSession(authOptions);

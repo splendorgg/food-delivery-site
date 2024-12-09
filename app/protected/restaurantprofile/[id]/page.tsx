@@ -1,5 +1,5 @@
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import ItemsCard from '@/components/RestaurantProfile/ItemsCard'
+import { authOptions } from '@/lib/auth'
 import prisma from '@/lib/db'
 import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
