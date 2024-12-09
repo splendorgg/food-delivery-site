@@ -5,8 +5,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// prisma/schema.prisma
+
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -38,14 +40,14 @@ model User {
 }
 
 model Restaurant {
-  id       Int    @id @default(autoincrement())
-  name     String
-  location String
-  opening  String
-  closing  String
-  items    Item[]
-  userId   Int
-  user     User   @relation(fields: [userId], references: [id])
-  profilePhoto String? 
+  id           Int     @id @default(autoincrement())
+  name         String
+  location     String
+  opening      String
+  closing      String
+  items        Item[]
+  userId       Int
+  user         User    @relation(fields: [userId], references: [id])
+  profilePhoto String?
   bannerPhoto  String?
 }

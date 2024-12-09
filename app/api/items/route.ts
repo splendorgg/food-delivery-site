@@ -55,7 +55,7 @@ export async function POST(req: Request) {
 
         const buffer = Buffer.from(await file.arrayBuffer())
         const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.]/g, "_");
-        const fileName = `${Date.now()}-${sanitizedFileName}}`
+        const fileName = `${Date.now()}-${sanitizedFileName}`
         const filePath = path.join(process.cwd(), "public/uploads", fileName)
         await fs.writeFile(filePath, buffer)
         const photoUrl = `/uploads/${fileName}`
