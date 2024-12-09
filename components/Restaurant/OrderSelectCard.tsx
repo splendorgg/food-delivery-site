@@ -1,39 +1,49 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
-import burger from '@/img/food/burger.png'
 import { Checkbox } from 'antd';
 import { FaMinus, FaPlus } from "react-icons/fa6";
+import { useCart } from './Context/CartContext';
 
-type Item = { id: number; name: string; price: number; description: string }
+type Item = { id: number; name: string; price: number; description: string, photoUrl: string }
 export function OrderSelectCard({ item, onClose }: { item: Item, onClose: () => void }) {
-    const [itemCount, setitemCount] = useState(1)
+    const { addToCart } = useCart()
+    const [itemCount, setItemCount] = useState(1);
+    const [basePrice,] = useState(item.price);
+    const [extrasPrice, setExtrasPrice] = useState(0);
+
     const handleCountPlus = () => {
-        setitemCount(itemCount + 1)
+        setItemCount(itemCount + 1)
     }
     const handleCountMinus = () => {
         if (itemCount === 1) {
             return
         } else {
-            setitemCount(itemCount - 1)
+            setItemCount(itemCount - 1)
         }
 
     }
+
+    const handleExtraChange = (checked: boolean, extra: { label: string; value: string }) => {
+        const extraPrice = parseFloat(extra.value);
+        setExtrasPrice((prev) =>
+            checked ? parseFloat((prev + extraPrice).toFixed(2)) : parseFloat((prev - extraPrice).toFixed(2))
+        );
+    };
+
+    const totalPrice = parseFloat(((basePrice + extrasPrice)).toFixed(2));
+    const totalShowPrice = parseFloat(((basePrice + extrasPrice) * itemCount).toFixed(2));
+
 
     const options = [
         { label: 'Extra Cheese', value: '2.50' },
         { label: 'Extra Onions', value: '3.49' },
         { label: 'Extra Bacon', value: '2.99' },
         { label: 'Extra Sauce', value: '3.99' },
-        { label: 'Extra Sauce', value: '3.99' },
-        { label: 'Extra Sauce', value: '3.99' },
-        { label: 'Extra Sauce', value: '3.99' },
-        { label: 'Extra Sauce', value: '3.99' },
-
     ];
     return (
         <div className="max-w-[1200px] flex lg:flex-row flex-col  mx-auto bg-white rounded-2xl shadow-lg gap-4 lg:max-h-[400px] w-full  ">
             <div className='w-full lg:w-[640px] h-[300px] lg:h-[400px] overflow-hidden rounded-l-lg relative'>
-                <Image src={burger} alt="food" className='object-cover w-full h-full' />
+                <Image src={item.photoUrl} fill alt="food" className='object-cover w-full h-full' />
                 <button onClick={onClose} className='absolute right-2 top-2 bg-gray-200 hover:bg-gray-300 px-2 rounded-full lg:hidden'>x</button>
             </div>
             <div className='flex flex-col flex-grow min-w-0 p-2 gap-4 '>
@@ -52,7 +62,7 @@ export function OrderSelectCard({ item, onClose }: { item: Item, onClose: () => 
                     {options.map((option) => (
                         <div className='flex py-1' key={option.value} >
                             <div>
-                                <Checkbox style={{ wordSpacing: "1px" }} >{option.label}</Checkbox>
+                                <Checkbox onChange={(e) => handleExtraChange(e.target.checked, option)} style={{ wordSpacing: "1px" }} >{option.label}</Checkbox>
                             </div>
                             <div className='ml-auto pr-2 text-gray-600 text-sm'>
                                 + {option.value} $
@@ -73,11 +83,15 @@ export function OrderSelectCard({ item, onClose }: { item: Item, onClose: () => 
                         </div>
                     </div>
                     <div className='flex select-none  ml-auto w-full h-full shadow-lg items-center justify-center text-white bg-[#3b971e] cursor-pointer hover:bg-[#338817]'>
-                        <div className='mr-auto p-2  '>
-                            Add to Order
-                        </div>
+                        <button onClick={() => addToCart({
+                            id: item.id,
+                            name: item.name,
+                            price: totalPrice,
+                            quantity: itemCount,
+                            photo: item.photoUrl,
+                        }, onClose())} className='mr-auto p-2 w-full' >Add to Order</button>
                         <div className='ml-auto bg-[#338817] p-2 '>
-                            ${item.price}
+                            ${totalShowPrice}
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import Cart from '@/components/Restaurant/Cart'
 import ConfirmMobileView from '@/components/Restaurant/ConfirmMobileView'
+import { CartProvider } from '@/components/Restaurant/Context/CartContext'
 import RestaturantContext from '@/components/Restaurant/Context/RestaurantContext'
 import RestaturantBanner from '@/components/Restaurant/RestaturantBanner'
 import RestaurantCategories from '@/components/Restaurant/RestaurantCategories'
@@ -33,15 +34,17 @@ async function Page({ params }: { params: { id: string } }) {
         <div className='max-w-[1300px] mx-auto px-2'>
             <RestaturantBanner info={restaurantInfo} />
             <RestaurantCategories />
-            <RestaturantContext>
-                <div className='flex gap-4'>
-                    <RestaurantMenu items={restaurantInfo.items ?? []} />
-                    <div className='hidden lg:block ml-auto'>
-                        <Cart />
+            <CartProvider>
+                <RestaturantContext>
+                    <div className='flex gap-4'>
+                        <RestaurantMenu items={restaurantInfo.items ?? []} />
+                        <div className='hidden lg:block ml-auto'>
+                            <Cart />
+                        </div>
                     </div>
-                </div>
-            </RestaturantContext>
-            <ConfirmMobileView />
+                </RestaturantContext>
+                <ConfirmMobileView />
+            </CartProvider>
 
 
 

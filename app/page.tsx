@@ -6,10 +6,10 @@ import MobileBanner from "@/components/HomePage/MobileBanner";
 export default function Home() {
   return (
     <>
-      <Banner></Banner>
-      <Cities></Cities>
-      <MobileBanner></MobileBanner>
-      <DeliveryBanner></DeliveryBanner>
+        <Banner></Banner>
+        <Cities></Cities>
+        <MobileBanner></MobileBanner>
+        <DeliveryBanner></DeliveryBanner>
     </>
   );
 }

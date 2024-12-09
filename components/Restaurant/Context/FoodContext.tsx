@@ -1,12 +1,14 @@
 'use client'
 import React, { createContext, useState, useContext, useEffect } from 'react'
 type Item = { id: number; name: string; price: number; description: string }
+
 interface ModalContextType {
   isModalVisible: boolean;
   handleFoodClick: (item: Item) => void;
   handleCloseModal: () => void;
   selectedItem: Item | null;
   setSelectedItem: React.Dispatch<React.SetStateAction<Item | null>>;
+
 }
 
 const defaultModalContext: ModalContextType = {
@@ -15,6 +17,7 @@ const defaultModalContext: ModalContextType = {
   handleCloseModal: () => { },
   selectedItem: null,
   setSelectedItem: () => { },
+
 };
 const ModalContext = createContext<ModalContextType>(defaultModalContext);
 
@@ -23,6 +26,7 @@ export function FoodContext({ children }: { children: React.ReactNode }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
 
+  
 
   const handleFoodClick = (item: Item) => { setIsModalVisible(true); setSelectedItem(item); };
 
@@ -36,7 +40,7 @@ export function FoodContext({ children }: { children: React.ReactNode }) {
     };
   }, [isModalVisible]);
   return (
-    <ModalContext.Provider value={{ isModalVisible, handleFoodClick, handleCloseModal, selectedItem, setSelectedItem }} >
+    <ModalContext.Provider value={{ isModalVisible, handleFoodClick, handleCloseModal, selectedItem, setSelectedItem, }} >
       {children}
     </ModalContext.Provider>
   )

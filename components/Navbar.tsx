@@ -21,17 +21,30 @@ interface Session {
 function Navbar() {
 
     const [session, setSession] = useState<Session | null>(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchSession = async () => {
             const session = await getSession();
             setSession(session as Session | null);
+            setLoading(false)
         };
 
         fetchSession();
     }, []);
 
 
+    if (loading) {
+        return (
+            <div className='sticky top-0 z-10'>
+                <div className='flex justify-center sm:justify-between bg-[#fff] w-full h-14 items-center px-20 text-black drop-shadow-lg'>
+                    <Link href="/">
+                        <h1>Logo</h1>
+                    </Link>
+                </div>
+            </div>
+        );
+    }
     return (
         <div className='sticky top-0 z-10'>
             <div className='flex justify-center sm:justify-between bg-[#fff] w-full h-14 items-center px-20 text-black drop-shadow-lg'>
