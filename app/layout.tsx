@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
 import { SessionProvider } from "@/components/SessionContext/SessionContext";
+import { authOptions } from "@/lib/auth";
 
 
 
