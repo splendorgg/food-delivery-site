@@ -54,4 +54,4 @@ npm run dev
 - **React Icons**: Library for adding popular icons to your project
 - **Tailwind**: Utility-first CSS framework for creating custom, responsive designs quickly
 - **Axios**: Promise-based HTTP client for making API requests
-- **Bcrypt**: Library for hashing and securely storing  passwords
+- **Bcrypt**: Library for hashing and securely storing  passwords.
