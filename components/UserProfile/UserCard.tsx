@@ -74,8 +74,8 @@ function UserCard({ restaurants, user }: UserCardProps) {
                                     <p>Opening Time: {restaurant.opening}</p>
                                     <p>Closing Time: {restaurant.closing}</p>
                                 </div>
-                                <button className='bg-[#e21b70] text-white px-2 py-1 rounded-lg'><Link href={`/restaurant/${restaurant.id}`}>Go to Restaurant</Link></button>
-                                <button className='bg-[#e21b70] text-white px-2 py-1 rounded-lg'><Link href={`/protected/restaurantprofile/${restaurant.id}`}>Edit Restaurant</Link></button>
+                                <Link href={`/restaurant/${restaurant.id}`}><button className='bg-[#e21b70] text-white px-2 py-1 rounded-lg'>Go to Restaurant</button></Link>
+                                <Link href={`/protected/restaurantprofile/${restaurant.id}`}><button className='bg-[#e21b70] text-white px-2 py-1 rounded-lg'>Edit Restaurant</button></Link>
 
                                 <button onClick={() => handleDelete(restaurant.id)} className='bg-[#e21b70] text-white px-2 py-1 rounded-lg'>Delete Restaurant</button>
                             </div>

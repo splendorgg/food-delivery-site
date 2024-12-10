@@ -86,7 +86,7 @@ function AddItem({ restaurantId, setMenuItems }: { restaurantId: number; setMenu
                     <input
                         required
                         type="file"
-                        accept='image/*'
+                        accept='.jpg,.jpeg,.png,.webp'
                         onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
                         className="input w-full h-[50px] py-2 px-2 border-solid border-2 rounded-md text-black "
 

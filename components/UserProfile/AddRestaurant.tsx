@@ -48,7 +48,7 @@ export default function AddRestaurant({ id }: { id: string; }) {
             console.error("Failed to add item:", error);
             alert("An error occurred while adding the item.");
         }
-    }, [name, location, opening, closing, profilePhoto, bannerPhoto, id,router]);
+    }, [name, location, opening, closing, profilePhoto, bannerPhoto, id, router]);
 
     return (
         <div>
@@ -78,7 +78,7 @@ export default function AddRestaurant({ id }: { id: string; }) {
                         value={opening}
                         onChange={(e) => setOpening(e.target.value)}
                         className="input w-full h-[40px] py-2 px-2 border-solid border-2 rounded-md text-black "
-                        placeholder="Opening Time"
+                        placeholder="Opening Time (08:00 AM)"
                     />
                     <input
                         required
@@ -86,19 +86,19 @@ export default function AddRestaurant({ id }: { id: string; }) {
                         value={closing}
                         onChange={(e) => setClosing(e.target.value)}
                         className="input w-full h-[40px] py-2 px-2 border-solid border-2 rounded-md text-black "
-                        placeholder="Closing Time"
+                        placeholder="Closing Time 09:00 PM)"
                     />
                     <input
                         required
                         type="file"
-                        accept='image/*'
+                        accept='.jpg,.jpeg,.png,.webp'
                         onChange={(e) => setProfilePhoto(e.target.files ? e.target.files[0] : null)}
                         className="input w-full h-[50px] py-2 px-2 border-solid border-2 rounded-md text-black "
                     />
                     <input
                         required
                         type="file"
-                        accept='image/*'
+                        accept='.jpg,.jpeg,.png,.webp'
                         onChange={(e) => setBannerPhoto(e.target.files ? e.target.files[0] : null)}
                         className="input w-full h-[50px] py-2 px-2 border-solid border-2 rounded-md text-black "
                     />
