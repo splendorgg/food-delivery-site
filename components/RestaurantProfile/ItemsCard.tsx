@@ -42,7 +42,7 @@ function ItemsCard({ items, restaurantId }: RestaurantMenuProps) {
     };
 
     return (
-        <div className='relative flex p-4 gap-4 '>
+        <div className='relative flex p-4 gap-4'>
             <div className='self-start sticky top-4'>
                 <AddItem restaurantId={restaurantId} setMenuItems={setMenuItems} />
             </div>
