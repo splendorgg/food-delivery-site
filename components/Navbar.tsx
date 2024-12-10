@@ -71,7 +71,9 @@ function Navbar() {
                         </div>
                     </div>
                 ) : (
-                    <div className='hidden sm:flex cursor-pointer hover:bg-gray-300 p-2 rounded-full transition-all duration-200'><Link href={`/protected/userprofile/${session?.user?.id}`}><IoPersonOutline size={20} /></Link></div>
+                    <Link href={`/protected/userprofile/${session?.user?.id}`}>
+                        <div className='hidden sm:flex cursor-pointer hover:bg-gray-300 p-2 rounded-full transition-all duration-200'><IoPersonOutline size={20} /></div>
+                    </Link>
                 )}
             </div>
         </div>
