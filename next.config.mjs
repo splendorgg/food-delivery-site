@@ -7,6 +7,15 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'food-delivery-site-nextjs.vercel.app',
+        port: '',
+      },
+    ],
+  },
 
 };
 

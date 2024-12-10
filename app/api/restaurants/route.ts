@@ -2,6 +2,7 @@ import prisma from "@/lib/db"
 import { NextResponse } from "next/server"
 import { promises as fs } from "fs";
 import path from "path"
+import { put } from "@vercel/blob";
 
 
 export async function DELETE(req: Request) {
@@ -64,21 +65,42 @@ export async function POST(req: Request) {
             );
         }
         let profilePhotoUrl = null;
+        //!For Local Image Storage
+        /* if (profilePhoto) {
+             const buffer = Buffer.from(await profilePhoto.arrayBuffer());
+             const profilePhotoName = `${Date.now()}-${profilePhoto.name}`;
+             const profilePhotoPath = path.join(process.cwd(), "public/uploads/restaurants", profilePhotoName);
+             await fs.writeFile(profilePhotoPath, buffer);
+             profilePhotoUrl = `/uploads/restaurants/${profilePhotoName}`;
+        }*/
+
+        //? For Vercel Blob
         if (profilePhoto) {
-            const buffer = Buffer.from(await profilePhoto.arrayBuffer());
-            const profilePhotoName = `${Date.now()}-${profilePhoto.name}`;
-            const profilePhotoPath = path.join(process.cwd(), "public/uploads/restaurants", profilePhotoName);
-            await fs.writeFile(profilePhotoPath, buffer);
-            profilePhotoUrl = `/uploads/restaurants/${profilePhotoName}`;
+            const profileBlob = await put(
+                `${Date.now()}-${profilePhoto.name}`,
+                profilePhoto.stream(),
+                { access: "public" }
+            );
+            profilePhotoUrl = profileBlob.url;
         }
 
         let bannerPhotoUrl = null;
-        if (bannerPhoto) {
+        //!For Local Image Storage
+        /*if (bannerPhoto) {
             const buffer = Buffer.from(await bannerPhoto.arrayBuffer());
             const bannerPhotoName = `${Date.now()}-${bannerPhoto.name}`;
             const bannerPhotoPath = path.join(process.cwd(), "public/uploads/restaurants", bannerPhotoName);
             await fs.writeFile(bannerPhotoPath, buffer);
             bannerPhotoUrl = `/uploads/restaurants/${bannerPhotoName}`;
+        }*/
+        //? For Vercel Blob
+        if (bannerPhoto) {
+            const bannerBlob = await put(
+                `${Date.now()}-${bannerPhoto.name}`,
+                bannerPhoto.stream(),
+                { access: "public" }
+            );
+            bannerPhotoUrl = bannerBlob.url;
         }
 
         const newRestaurant = await prisma.restaurant.create({
