@@ -11,7 +11,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'food-delivery-site-nextjs.vercel.app',
+        hostname: 'mmmlqhebg2fzjv4u.public.blob.vercel-storage.com',
         port: '',
       },
     ],

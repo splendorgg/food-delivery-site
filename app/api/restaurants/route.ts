@@ -1,10 +1,11 @@
 import prisma from "@/lib/db"
 import { NextResponse } from "next/server"
-import { promises as fs } from "fs";
-import path from "path"
-import { put } from "@vercel/blob";
+// import { promises as fs } from "fs";
+// import path from "path"
+import { del, put } from "@vercel/blob";
 
-
+//!For Local Image Storage
+/*
 export async function DELETE(req: Request) {
     if (req.method === "DELETE") {
         try {
@@ -44,6 +45,68 @@ export async function DELETE(req: Request) {
 
     } else {
         return NextResponse.json({ error: "Method not allowed" }, { status: 400 })
+    }
+}
+*/
+//? For Vercel Blob
+export async function DELETE(req: Request) {
+    if (req.method === "DELETE") {
+        try {
+            const body = await req.json();
+            const { id } = body;
+
+            // Restoranı veritabanından bul
+            const restaurant = await prisma.restaurant.findUnique({
+                where: { id },
+            });
+
+            if (!restaurant) {
+                return NextResponse.json(
+                    { error: "Restaurant does not exist" },
+                    { status: 400 }
+                );
+            }
+
+            if (restaurant.profilePhoto) {
+                const profilePhotoPath = new URL(restaurant.profilePhoto).pathname.slice(1);
+                try {
+                    await del(profilePhotoPath);
+                } catch (err) {
+                    console.error("Failed to delete profile photo from Blob:", err);
+                }
+            }
+
+            if (restaurant.bannerPhoto) {
+                const bannerPhotoPath = new URL(restaurant.bannerPhoto).pathname.slice(1);
+                try {
+                    await del(bannerPhotoPath);
+                } catch (err) {
+                    console.error("Failed to delete banner photo from Blob:", err);
+                }
+            }
+
+            const deletedRestaurant = await prisma.restaurant.delete({
+                where: {
+                    id: id,
+                },
+            });
+
+            return NextResponse.json(
+                { message: "Restaurant deleted", deletedRestaurant },
+                { status: 200 }
+            );
+        } catch (error) {
+            console.error("Failed to delete restaurant:", error);
+            return NextResponse.json(
+                { error: "Failed to delete restaurant" },
+                { status: 500 }
+            );
+        }
+    } else {
+        return NextResponse.json(
+            { error: "Method not allowed" },
+            { status: 405 }
+        );
     }
 }
 
