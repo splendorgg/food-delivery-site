@@ -119,6 +119,11 @@ export async function POST(req: Request) {
         //? For Vercel Blob
         let photoUrl = null
         if (file) {
+            const photoSize = file.size
+            const maxSize = 4.5 * 1024 * 1024;
+            if (photoSize > maxSize) {
+                return NextResponse.json({ error: "photo size exceeds the maximum limit of 4.5 MB" }, { status: 400 });
+            }
             const profileBlob = await put(
                 `${Date.now()}-${file.name}`,
                 file.stream(),

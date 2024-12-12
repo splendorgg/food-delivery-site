@@ -45,8 +45,11 @@ export default function AddRestaurant({ id }: { id: string; }) {
 
             router.push(`/protected/userprofile/${id}`)
         } catch (error) {
-            console.error("Failed to add item:", error);
-            alert("An error occurred while adding the item.");
+            if (error.response && error.response.data.error) {
+                alert(error.response.data.error);
+            } else {
+                alert("An error occurred while adding the restaurant.");
+            }
         }
     }, [name, location, opening, closing, profilePhoto, bannerPhoto, id, router]);
 

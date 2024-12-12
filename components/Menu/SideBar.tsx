@@ -1,30 +1,37 @@
 "use client"
 import React, { useState } from 'react'
-import type { RadioChangeEvent, GetProp } from 'antd';
+import type { RadioChangeEvent } from 'antd';
 import { Radio, Space, Checkbox } from 'antd';
+import { useRouter } from 'next/navigation';
 
 const options = [
+    { label: 'Turkish', value: 'Turkish' },
     { label: 'Breakfast', value: 'Breakfast' },
-    { label: 'Burger', value: 'Burger' },
-    { label: 'Chicken', value: 'Chicken' },
-    { label: 'Dessert', value: 'Dessert' },
-    { label: 'International', value: 'International' },
-    { label: 'Pizza', value: 'Pizza' },
-    { label: 'Seafood ', value: 'Seafood ' },
-    { label: 'Rice ', value: 'Rice ' },
-    { label: 'Salad ', value: 'Salad ' },
-    { label: 'Pide ', value: 'Pide ' },
+    { label: 'Mexican', value: 'Mexican' },
+    { label: 'American', value: 'American' },
+    { label: 'Fastfood', value: 'Fastfood' },
+    { label: 'Lunch', value: 'Lunch' },
+    { label: 'Dinner ', value: 'Dinner ' },
+    { label: 'Chicken ', value: 'Chicken ' },
+    { label: 'Italian ', value: 'Italian ' },
+    { label: 'Japanese ', value: 'Japanese ' },
+    { label: 'Grilled ', value: 'Grilled ' },
 ];
 
-function SideBar() {
-
+function SideBar({ selectedCategories }) {
     const [sortValue, setSortValue] = useState(1);
-
     const onRadioChange = (e: RadioChangeEvent) => {
         setSortValue(e.target.value);
     };
-    const onCheckboxChange: GetProp<typeof Checkbox.Group, 'onChange'> = (checkedValues) => {
-        console.log('checked = ', checkedValues);
+
+    const router = useRouter();
+    const onCheckboxChange = (checkedValues) => {
+        if (checkedValues.length > 0) {
+            const queryParams = `?categories=${checkedValues.join('&categories=')}`;
+            router.replace(queryParams, { shallow: true, scroll: false });
+        } else {
+            router.replace('/menu', { shallow: true, scroll: false });
+        }
     };
 
     return (
@@ -44,7 +51,7 @@ function SideBar() {
             <div className='mt-5'>
                 <h3 className='mb-1'>Cuisines</h3>
                 <div >
-                    <Checkbox.Group options={options} defaultValue={['']} onChange={onCheckboxChange} className='flex flex-col gap-2  ' />
+                    <Checkbox.Group options={options} defaultValue={selectedCategories} onChange={onCheckboxChange} className='flex flex-col gap-2  ' />
                 </div>
             </div>
             <div className='mt-4'>

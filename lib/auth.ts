@@ -72,6 +72,7 @@ export const authOptions: AuthOptions = {
             return token
         }
     },
+    //! Comment this cookies section for local usage
     cookies: {
         sessionToken: {
             name: `__Secure-next-auth.session-token`,

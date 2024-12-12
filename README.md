@@ -55,3 +55,5 @@ npm run dev
 - **Tailwind**: Utility-first CSS framework for creating custom, responsive designs quickly
 - **Axios**: Promise-based HTTP client for making API requests
 - **Bcrypt**: Library for hashing and securely storing  passwords.
+
+

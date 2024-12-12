@@ -24,9 +24,10 @@ model Item {
 }
 
 model Category {
-  id    Int    @id @default(autoincrement())
-  name  String
-  items Item[] @relation("ItemToCategory")
+  id        Int        @id @default(autoincrement())
+  name      String
+  items     Item[]     @relation("ItemToCategory")
+  menuItems MenuItem[] @relation("MenuItemToCategory")
 }
 
 model User {
@@ -50,4 +51,13 @@ model Restaurant {
   user         User    @relation(fields: [userId], references: [id])
   profilePhoto String?
   bannerPhoto  String?
+}
+
+model MenuItem {
+  id         Int        @id @default(autoincrement())
+  name       String
+  price      Float
+  time       String
+  categories Category[] @relation("MenuItemToCategory")
+  photoUrl   String?
 }

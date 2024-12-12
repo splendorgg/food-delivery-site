@@ -48,8 +48,11 @@ function AddItem({ restaurantId, setMenuItems }: { restaurantId: number; setMenu
             setDesc("");
             setFile(null)
         } catch (error) {
-            console.error("Failed to add item:", error);
-            alert("An error occurred while adding the item.");
+            if (error.response && error.response.data.error) {
+                alert(error.response.data.error);
+            } else {
+                alert("An error occurred while adding the restaurant.");
+            }
         }
     }, [name, price, desc, file, restaurantId, setMenuItems])
 
